@@ -1,0 +1,30 @@
+<h1>Add a Comic to the Database</h1>
+
+<%= form_tag "/comics", method: :post do%>
+  <div>
+    <label name= "comic_name">Name:</label>
+    <input type="text" name="comic_name">
+  </div>
+
+  <div>
+    <label name="comic_price">Price:</label>
+    <input type="text" name="comic_price">
+  </div>
+
+  <div>
+    <label name="comic_description">Description:</label>
+    <input type="text" name="comic_description">
+  </div>
+
+  <div>
+    <label name="in_stock">Instock:</label>
+    <input type="text" name="in_stock">
+  </div>
+
+  <div>
+    <label name="submit_button">
+    <input type="submit" name="submit">
+    </label>
+  </div>
+
+<% end %>
