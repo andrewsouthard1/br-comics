@@ -1,17 +1,17 @@
 class ComicsController < ApplicationController
   def index
     if params[:sort] == "price_low_to_high"
-      @comics = Product.all.order(:price)
+      @comics = Comic.all.order(:price)
     elsif params[:sort] == "price_high_to_low"
-      @comics = Product.all.order(:price => :desc)
+      @comics = Comic.all.order(:price => :desc)
     elsif params["search-term"]
-      @comics = Product.where("name LIKE ?", "%#{params['search-term']}%")
+      @comics = Comic.where("name LIKE ?", "%#{params['search-term']}%")
     elsif params[:sort] == "discount_items"
-      @comics = Product.where("price < ?", 10)
+      @comics = Comic.where("price < ?", 10)
     else
-      @comics = Product.all
+      @comics = Comic.all
     end
-    # @comic_id = Product.find_by(params[])
+    # @comic_id = Comic.find_by(params[])
     render 'index.html.erb'
   end
 
@@ -20,11 +20,10 @@ class ComicsController < ApplicationController
   end
 
   def create
-    @comic1 = Product.new(
+    @comic1 = Comic.new(
       name: params["comic_name"],
       price: params["comic_price"],
-      description: params["comic_description"],
-      in_stock: params["in_stock"]
+      description: params["comic_description"]
     )
     @comic1.save
     flash[:success] = "Created comic"
@@ -34,34 +33,33 @@ class ComicsController < ApplicationController
   def show
     comic_id = params[:id]
     if params[:sort] == "random_item"
-      shuffled_products = Product.all.shuffle
+      shuffled_products = Comic.all.shuffle
       @comic = shuffled_products.first
     else
-      @comic = Product.find_by(id: comic_id)
+      @comic = Comic.find_by(id: comic_id)
     end
     render 'show.html.erb'
   end
 
   def edit
-    @comic = Product.find_by(id: params[:id])
+    @comic = Comic.find_by(id: params[:id])
     render 'edit.html.erb'
   end
 
   def update
-    @comic = Product.find_by(id: params[:id])
+    @comic = Comic.find_by(id: params[:id])
     @comic.update(
       name: params["comic_name"],
       price: params["comic_price"],
       image: params["comic_image"],
-      description: params["comic_description"],
-      in_stock: params["in_stock"]
+      description: params["comic_description"]
     )
     flash[:success] = "Updated comic"
     redirect_to "/comics/#{@comic.id}"
   end
 
   def destroy
-    @comic = Product.find(params[:id])
+    @comic = Comic.find(params[:id])
     @comic.destroy
     flash[:danger] = "Deleted comic."
     redirect_to "/comics"
