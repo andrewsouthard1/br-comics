@@ -7,6 +7,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Press+Start+2P" rel="stylesheet">
+    <script src="https://use.fontawesome.com/c55360202e.js"></script>
     <%= csrf_meta_tags %>
   </head>
 
@@ -37,11 +38,7 @@
             <li><a href="/comics/?sort=discount_items">Discount Items</a></li>
             <li><a href="/comics/show/?sort=random_item">Random</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Something else here</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
           </ul>
         </li>
       </ul>
@@ -61,9 +58,10 @@
           <ul class="dropdown-menu">
             <li><a href="#">Action</a></li>
             <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+            <% if current_user %>
+              <li><a href="/carted_products"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+Cart (<%= get_cart_count %>)</a></li>
+            <% end %>
           </ul>
         </li>
       </ul>

@@ -1,1 +1,12 @@
-this is the show
+<p>Order id: <%= @order.id + 7432523432 %></p>
+
+<p>Order subtotal: <%= @order.subtotal %></p>
+<p>Order tax: <%= @order.tax %></p>
+<p>Order total: <%= @order.total %></p>
+
+
+<p>Products</p>
+<% @order.carted_products.each do |carted_product| %>
+  <p>Product name: <%= carted_product.comic.name %></p>
+  <p>Product quantity: <%= carted_product.quantity %> </p>
+<% end %>

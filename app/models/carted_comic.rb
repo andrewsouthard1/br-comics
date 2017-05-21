@@ -1,0 +1,2 @@
+class CartedComic < ApplicationRecord
+end
