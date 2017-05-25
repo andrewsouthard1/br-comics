@@ -1,4 +1,4 @@
-/*
+  /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -32,6 +32,10 @@ h1 {
   font-size: 25px;
 }
 
+.navbar {
+  background-color: transparent;
+}
+
 .center-image {
   text-align: center;
 }
@@ -46,6 +50,10 @@ h1 {
   text-align: left; 
   border-radius: 5%;
   border: 5px black solid;
+}
+
+.number-text {
+  width: 30px;
 }
 
 .subway-seat {

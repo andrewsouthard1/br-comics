@@ -10,6 +10,6 @@
 
 <%= form_tag "/carted_products", method: :post do %>
   <input type="hidden" value=<%= @comic.id %> name="comic_id">
-  <input type="text" name="quantity">
+  <input class="number-text" type="text" name="quantity">
   <input type="submit" value="Add to Cart">
 <% end %>

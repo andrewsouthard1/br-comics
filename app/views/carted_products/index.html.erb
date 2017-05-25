@@ -1,10 +1,13 @@
-here is your cart
+<h1>Cart</h1>
 
-<% @carted_products.each do |carted_product| %>
-  <p><%= carted_product.comic.name %></p>
-  <p><%= carted_product.quantity %></p>
-  <%= link_to "Remove this product", "/carted_products/#{carted_product.id}", method: :delete %>
-<% end  %>
+<div class="subway-seat">
+  <% @carted_products.each do |carted_product| %>
+      <p>Item: <%= carted_product.comic.name %></p>
+      <p><img src="<%= carted_product.comic.image %>"></p>
+      <p>Quanity: <%= carted_product.quantity %></p>
+      <%= link_to "Remove this product", "/carted_products/#{carted_product.id}", method: :delete %>
+  <% end  %>
+</div>
 
 
 <%= form_tag "/orders", method: :post do %>
