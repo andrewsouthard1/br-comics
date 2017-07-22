@@ -1,24 +1,5 @@
-# README
+# Bay Ridge Comics
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+One day I want to own a comic book shop in Bay Ridge, and I will call it Bay Ridge Comics. This is a mock up of what the website would look like, along with building a shopping cart functionality and sign-in/sign-out for users. 
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![alt text](http:imgur.com/a/lAZAC)
